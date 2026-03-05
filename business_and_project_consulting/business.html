@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business & Project Consulting | Civoris</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/png" href="/home_images/civoris_leaf.jpeg">
+<meta name="theme-color" content="#7a0f1a">
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+
+<nav id="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+  <a href="../index.html" class="logo-link">
+    <img src="/home_images/civoris_leaf.jpeg" alt="Civoris logo">
+
+    <div class="logo-text">
+      <span class="brand-main">Civoris</span>
+      <span class="brand-sub">Constancy</span>
+    </div>
+  </a>
+</div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a class="nav-link active" href="#">Business & Project Consulting</a></li>
+      <li><a href="../civoris_teaching/civoris.html">Civoris Teaching</a></li>
+      <li><a href="../about/about.html">About</a></li>
+      <li><a href="../how_it_works/how.html">How it works</a></li>
+      <li><a href="../contact/contact.html">Contact</a></li>
+    </ul>
+  
+<!-- hamburger for mobile -->
+            <button class="hamburger" id="hamb" aria-label="Open mobile menu" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+  </div>
+</nav>
+
+    </header>
+
+    <!-- MOBILE NAV PANEL -->
+    <div id="mobilePanel" aria-hidden="true">
+    <nav style="display:flex;flex-direction:column;gap:6px">
+
+        <button class="mobile-toggle" data-target="m-business" onclick="window.location.href='../business_and_project_consulting/business.html'">
+          Business & Project Consulting</button>
+       
+
+        <button class="mobile-toggle" data-target="m-teaching" onclick="window.location.href='../civoris_teaching/civoris.html'">Civoris Teaching</button>
+
+        <button class="mobile-toggle" data-target="m-about" onclick="window.location.href='../about/about.html'">About</button>
+
+        <button class="mobile-toggle" data-target="m-how" onclick="window.location.href='../how_it_works/how.html'">How it works</button>
+
+        <a href="../contact/contact.html" class="mobile-link" style="font-weight:700">
+            Contact
+        </a>
+
+    </nav>
+</div>
+<!-- HERO -->
+     <main>
+
+<section class="page-hero">
+  <div class="container fade-in">
+    <h1>Business & Project Consulting</h1>
+    <p>Structured, execution-focused consulting designed to transform ideas into operational reality. We bring clarity, discipline and measurable systems to every initiative.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECT PLANNING -->
+<section>
+  <div class="container service-block fade-in">
+    <div class="service-content">
+      <h3>Project Planning & Structuring</h3>
+      <p>Every successful initiative begins with structure. We design clear execution frameworks that eliminate ambiguity and create momentum.</p>
+      <ul>
+        <li>Project roadmaps & milestones</li>
+        <li>Timeline and deliverable mapping</li>
+        <li>Resource allocation planning</li>
+        <li>Risk identification & mitigation strategy</li>
+      </ul>
+    </div>
+    <div class="service-visual">
+      Strategic Framework Design
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUSINESS ORGANISATION -->
+<section>
+  <div class="container service-block reverse fade-in">
+    <div class="service-content">
+      <h3>Business Organisation & Process Improvement</h3>
+      <p>Operational clarity drives sustainable growth. We analyse existing systems and optimise workflows for efficiency and accountability.</p>
+      <ul>
+        <li>Workflow mapping</li>
+        <li>Operational structure alignment</li>
+        <li>Responsibility matrix definition</li>
+        <li>Performance bottleneck resolution</li>
+      </ul>
+    </div>
+    <div class="service-visual">
+      Operational Optimisation
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- KPI & MONITORING -->
+<section>
+  <div class="container service-block fade-in">
+    <div class="service-content">
+      <h3>Monitoring, KPIs & Reporting Systems</h3>
+      <p>Measurement transforms intention into performance. We implement structured tracking systems that ensure measurable progress.</p>
+      <ul>
+        <li>Custom KPI framework design</li>
+        <li>Performance dashboards</li>
+        <li>Reporting structures</li>
+        <li>Continuous improvement tracking</li>
+      </ul>
+    </div>
+    <div class="service-visual">
+      Performance Intelligence Systems
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COACHING -->
+<section class="coaching">
+  <div class="container fade-in coaching-box">
+    <h2>One-to-One Project & Business Coaching</h2>
+    <p>For founders, entrepreneurs and project leaders who require strategic guidance and accountability. Coaching sessions focus on structured execution, decision clarity and measurable progress.</p>
+    <br>
+    <a href="../contact/contact.html" class="btn-primary">Request a Consultation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>Civoris Teaching & Consulting</strong><br>
+    Abidjan, Côte d’Ivoire | International Services Available<br><br>
+    © 2026 Civoris.org
+  </div>
+</footer>
+</main>
+
+<script>
+/* ================= MOBILE NAV FIX ================= */
+
+const hamb = document.getElementById("hamb");
+const mobilePanel = document.getElementById("mobilePanel");
+
+if (hamb && mobilePanel) {
+    hamb.addEventListener("click", () => {
+        const isOpen = mobilePanel.classList.toggle("show");
+        mobilePanel.setAttribute("aria-hidden", String(!isOpen));
+        hamb.setAttribute("aria-expanded", String(isOpen));
+    });
+}
+
+/* Collapsible mobile sections */
+document.querySelectorAll('.mobile-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.dataset.target;
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const isShown = el.style.display === 'block';
+        el.style.display = isShown ? 'none' : 'block';
+        btn.setAttribute('aria-expanded', String(!isShown));
+    });
+});
+
+/* Close when clicking mobile link */
+document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    });
+});
+
+/* Close on outside click */
+document.addEventListener('click', e => {
+    if (!e.target.closest('#mobilePanel') && !e.target.closest('#hamb')) {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/* Close on ESC */
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/* Reset on resize */
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    }
+});
+
+window.addEventListener("scroll", () => {
+const nav = document.getElementById("navbar");
+nav.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+
+
+/* Scroll animation */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{
+  threshold:0.15,
+  rootMargin:"0px 0px -50px 0px"
+});
+
+document.querySelectorAll(".fade-in").forEach(el=>{
+  observer.observe(el);
+});
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>

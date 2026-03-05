@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Civoris | Founder & Philosophy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/png" href="/home_images/civoris_leaf.jpeg">
+<meta name="theme-color" content="#7a0f1a">
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+
+<nav id="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+  <a href="../index.html" class="logo-link">
+    <img src="/home_images/civoris_leaf.jpeg" alt="Civoris logo">
+
+    <div class="logo-text">
+      <span class="brand-main">Civoris</span>
+      <span class="brand-sub">Constancy</span>
+    </div>
+  </a>
+</div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../business_and_project_consulting/business.html">Business & Project Consulting</a></li>
+      <li><a href="../civoris_teaching/civoris.html">Civoris Teaching</a></li>
+      <li><a class="nav-link active" href="#">About</a></li>
+      <li><a href="../how_it_works/how.html">How it works</a></li>
+      <li><a href="../contact/contact.html">Contact</a></li>
+    </ul>
+  
+<!-- hamburger for mobile -->
+            <button class="hamburger" id="hamb" aria-label="Open mobile menu" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+  </div>
+</nav>
+
+    </header>
+
+    <!-- MOBILE NAV PANEL -->
+    <div id="mobilePanel" aria-hidden="true">
+    <nav style="display:flex;flex-direction:column;gap:6px">
+
+        <button class="mobile-toggle" data-target="m-business" onclick="window.location.href='../business_and_project_consulting/business.html'">
+          Business & Project Consulting</button>
+       
+
+        <button class="mobile-toggle" data-target="m-teaching" onclick="window.location.href='../civoris_teaching/civoris.html'">Civoris Teaching</button>
+
+        <button class="mobile-toggle" data-target="m-about" onclick="window.location.href='../about/about.html'">About</button>
+
+        <button class="mobile-toggle" data-target="m-how" onclick="window.location.href='../how_it_works/how.html'">How it works</button>
+
+        <a href="../contact/contact.html" class="mobile-link" style="font-weight:700">
+            Contact
+        </a>
+
+    </nav>
+</div>
+
+<!-- HERO -->
+ <main>
+<section class="page-hero">
+  <div class="container fade-in">
+    <h1>Founder & Professional Philosophy</h1>
+    <p>Civoris was founded to combine structured business strategy with personalised educational support — delivering clarity, discipline and measurable results across both domains.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOUNDER -->
+<section>
+  <div class="container founder fade-in">
+    <div class="founder-visual">
+      Founder Portrait Placeholder
+    </div>
+    <div class="founder-content">
+      <h3>Professional Background</h3>
+      <p>The founder of Civoris brings expertise in Business Project Management and Education. This dual foundation allows for a unique integration of structured execution frameworks with personalised human development strategies.</p>
+      <p>With experience managing structured initiatives and supporting learners academically, Civoris bridges strategic thinking and practical implementation across sectors.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTERNATIONAL EXPERIENCE -->
+<section class="experience">
+  <div class="container fade-in">
+    <h2>International Experience</h2>
+    <div class="experience-grid">
+      <div class="experience-box">
+        <h3>Africa</h3>
+        <p>Operational leadership and educational support within dynamic and emerging markets.</p>
+      </div>
+      <div class="experience-box">
+        <h3>Asia</h3>
+        <p>Structured academic tutoring and cross-cultural engagement in international environments.</p>
+      </div>
+      <div class="experience-box">
+        <h3>Europe</h3>
+        <p>Exposure to structured organisational systems and performance-driven frameworks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MISSION & VALUES -->
+<section>
+  <div class="container fade-in">
+    <h2>Mission & Values</h2>
+    <p>Across consulting and teaching, Civoris operates with a consistent philosophy: structure, accountability and measurable progress.</p>
+
+    <div class="values-grid">
+      <div class="value-box">
+        <h3>Clarity</h3>
+        <p>Every initiative begins with clear objectives, defined outcomes and measurable milestones.</p>
+      </div>
+      <div class="value-box">
+        <h3>Structure</h3>
+        <p>Systems and frameworks are implemented to ensure consistency and sustainability.</p>
+      </div>
+      <div class="value-box">
+        <h3>Results</h3>
+        <p>Performance and progress are continuously monitored to ensure tangible outcomes.</p>
+      </div>
+      <div class="value-box">
+        <h3>Personalisation</h3>
+        <p>Each client or learner receives tailored strategies adapted to their unique context.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PHILOSOPHY -->
+<section>
+  <div class="container fade-in">
+    <h2>A Unified Philosophy</h2>
+    <p>Whether advising a business leader or guiding a student, the methodology remains consistent: assess clearly, plan structurally, implement deliberately and monitor continuously.</p>
+    <br>
+    <a href="../contact/contact.html" class="btn-primary">Start the Conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>Civoris Teaching & Consulting</strong><br>
+    Abidjan, Côte d’Ivoire | International Services Available<br><br>
+    © 2026 Civoris.org
+  </div>
+</footer>
+</main>
+
+<script>
+/* ================= MOBILE NAV FIX ================= */
+
+const hamb = document.getElementById("hamb");
+const mobilePanel = document.getElementById("mobilePanel");
+
+if (hamb && mobilePanel) {
+    hamb.addEventListener("click", () => {
+        const isOpen = mobilePanel.classList.toggle("show");
+        mobilePanel.setAttribute("aria-hidden", String(!isOpen));
+        hamb.setAttribute("aria-expanded", String(isOpen));
+    });
+}
+
+/* Collapsible mobile sections */
+document.querySelectorAll('.mobile-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.dataset.target;
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const isShown = el.style.display === 'block';
+        el.style.display = isShown ? 'none' : 'block';
+        btn.setAttribute('aria-expanded', String(!isShown));
+    });
+});
+
+/* Close when clicking mobile link */
+document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    });
+});
+
+/* Close on outside click */
+document.addEventListener('click', e => {
+    if (!e.target.closest('#mobilePanel') && !e.target.closest('#hamb')) {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/* Close on ESC */
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/* Reset on resize */
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+        mobilePanel.classList.remove('show');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        hamb.setAttribute('aria-expanded', 'false');
+    }
+});
+
+window.addEventListener("scroll", () => {
+const nav = document.getElementById("navbar");
+nav.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+
+
+/* Scroll animation */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{
+  threshold:0.15,
+  rootMargin:"0px 0px -50px 0px"
+});
+
+document.querySelectorAll(".fade-in").forEach(el=>{
+  observer.observe(el);
+});
+
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
