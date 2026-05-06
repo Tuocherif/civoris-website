@@ -453,16 +453,12 @@ text-align:center;
   align-items:center;
 }
 
-.founder-visual{
-  background:rgba(122,15,26,.06);
-  height:350px;
-  border-radius:25px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--burgundy);
-  font-weight:600;
-  letter-spacing:1px;
+.founder-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
 .founder-content h3{
