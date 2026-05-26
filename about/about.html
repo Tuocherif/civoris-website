@@ -454,7 +454,13 @@ Abidjan, Côte d’Ivoire | International Services Available<br>
 const hamb = document.getElementById("hamb");
 const mobilePanel = document.getElementById("mobilePanel");
 
-hamb.addEventListener("click", () => {
+/* =========================
+   MOBILE MENU
+========================= */
+
+hamb.addEventListener("click", (e) => {
+
+e.stopPropagation();
 
 const isOpen = mobilePanel.classList.toggle("show");
 
@@ -490,6 +496,10 @@ document.getElementById("navbar")
 
 });
 
+/* =========================
+   FADE-IN ANIMATION
+========================= */
+
 const observer = new IntersectionObserver(entries => {
 
 entries.forEach(entry => {
@@ -504,11 +514,18 @@ entry.target.classList.add("visible");
 
 },{ threshold:0.15 });
 
-document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+document.querySelectorAll(".fade-in")
+.forEach(el => observer.observe(el));
+
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
 
 const translations = {
 
 fr: {
+
+toggle: "FR | EN",
 
 heroBadge:
 "Certification PMP • Expertise Internationale en Conseil",
@@ -517,11 +534,19 @@ heroTitle:
 "Aider les Organisations à Réaliser leurs Projets, Optimiser leurs Opérations et Atteindre leurs Objectifs Stratégiques",
 
 heroText:
-"Civoris Consultancy accompagne les organisations avec des solutions structurées en gestion de projet et conseil opérationnel afin d'améliorer l'efficacité, l'exécution et la croissance durable."
+"Civoris Consultancy accompagne les organisations avec des solutions structurées en gestion de projet et conseil opérationnel afin d'améliorer l'efficacité, l'exécution et la croissance durable.",
+
+heroBtn1:
+"Planifier une Consultation",
+
+heroBtn2:
+"Découvrir les Services"
 
 },
 
 en: {
+
+toggle: "EN | FR",
 
 heroBadge:
 "PMP Certified • International Consulting Expertise",
@@ -530,7 +555,13 @@ heroTitle:
 "Helping Organisations Deliver Projects, Improve Operations, and Achieve Strategic Results",
 
 heroText:
-"Civoris Consultancy provides structured project management and business consulting support to organisations seeking operational clarity, efficient execution, and sustainable growth."
+"Civoris Consultancy provides structured project management and business consulting support to organisations seeking operational clarity, efficient execution, and sustainable growth.",
+
+heroBtn1:
+"Schedule a Consultation",
+
+heroBtn2:
+"Explore Services"
 
 }
 
@@ -538,26 +569,47 @@ heroText:
 
 let currentLang = "en";
 
-function switchLanguage(){
+const langToggle = document.getElementById("langToggle");
+const mobileLangToggle = document.getElementById("mobileLangToggle");
+
+function switchLanguage(e){
+
+if(e){
+e.preventDefault();
+}
 
 currentLang = currentLang === "en" ? "fr" : "en";
 
+const t = translations[currentLang];
+
+/* HERO */
 document.querySelector(".hero-badge").textContent =
-translations[currentLang].heroBadge;
+t.heroBadge;
 
 document.querySelector(".page-hero h1").textContent =
-translations[currentLang].heroTitle;
+t.heroTitle;
 
 document.querySelector(".page-hero p").textContent =
-translations[currentLang].heroText;
+t.heroText;
+
+/* BUTTONS */
+document.querySelector(".btn-primary").textContent =
+t.heroBtn1;
+
+document.querySelector(".btn-outline").textContent =
+t.heroBtn2;
+
+/* TOGGLES */
+langToggle.textContent = t.toggle;
+mobileLangToggle.textContent = t.toggle;
 
 }
 
-document.getElementById("langToggle")
-.addEventListener("click", switchLanguage);
+/* EVENTS */
 
-document.getElementById("mobileLangToggle")
-.addEventListener("click", switchLanguage);
+langToggle.addEventListener("click", switchLanguage);
+
+mobileLangToggle.addEventListener("click", switchLanguage);
 
 </script>
 
