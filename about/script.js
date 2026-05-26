@@ -153,35 +153,42 @@ lang
 
 function updateToggleUI(lang){
 
-const flag =
-lang === "en"
-? "🇬🇧"
-: "🇫🇷";
+const track =
+document.querySelector(".lang-track");
 
-const text =
-lang === "en"
-? "EN"
-: "FR";
+if(track){
+
+if(lang === "fr"){
+
+track.classList.add("fr");
+
+}
+else{
+
+track.classList.remove("fr");
+
+}
+
+}
 
 document
-.querySelectorAll(
-"#langToggle, #mobileLangToggle"
-)
-.forEach(button => {
+.querySelectorAll(".lang-option")
+.forEach(option => {
 
-button.innerHTML = `
+option.classList.remove("active-lang");
 
-<span class="lang-flag">
-${flag}
-</span>
+if(option.textContent.trim() === lang.toUpperCase()){
 
-<span class="lang-text">
-${text}
-</span>
+option.classList.add("active-lang");
 
-`;
+}
 
 });
+
+localStorage.setItem(
+"lang",
+lang
+);
 
 }
 
