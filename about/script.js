@@ -1,3 +1,50 @@
+const hamb =
+document.getElementById("hamb");
+
+const mobilePanel =
+document.getElementById("mobilePanel");
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+hamb.addEventListener("click", (e) => {
+
+e.stopPropagation();
+
+const isOpen =
+mobilePanel.classList.toggle("show");
+
+mobilePanel.setAttribute(
+"aria-hidden",
+String(!isOpen)
+);
+
+hamb.setAttribute(
+"aria-expanded",
+String(isOpen)
+);
+
+});
+
+document.addEventListener("click", e => {
+
+if(
+!e.target.closest("#mobilePanel")
+&& !e.target.closest("#hamb")
+){
+
+mobilePanel.classList.remove("show");
+
+hamb.setAttribute(
+"aria-expanded",
+"false"
+);
+
+}
+
+});
+
 /* =========================
    NAVBAR SCROLL
 ========================= */
@@ -14,27 +61,51 @@ window.scrollY > 20
 });
 
 /* =========================
-   TRANSLATIONS
+   FADE IN
+========================= */
+
+const observer =
+new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+},{ threshold:0.15 });
+
+document
+.querySelectorAll(".fade-in")
+.forEach(el => observer.observe(el));
+
+/* =========================
+   LANGUAGE SYSTEM
 ========================= */
 
 let currentLang =
 localStorage.getItem("lang") || "en";
-
-/* =========================
-   LOAD JSON
-========================= */
 
 async function loadTranslations(lang){
 
 try{
 
 const response =
-await fetch(`locales/${lang}/translation.json`);
+await fetch(
+`locales/${lang}/translation.json`
+);
 
 const translations =
 await response.json();
 
-applyTranslations(translations, lang);
+applyTranslations(
+translations,
+lang
+);
 
 }
 catch(error){
@@ -48,11 +119,10 @@ error
 
 }
 
-/* =========================
-   APPLY TRANSLATIONS
-========================= */
-
-function applyTranslations(translations, lang){
+function applyTranslations(
+translations,
+lang
+){
 
 document.documentElement.lang = lang;
 
@@ -72,17 +142,16 @@ translations[key];
 
 });
 
-updateLanguageButtons(lang);
+updateToggleUI(lang);
 
-localStorage.setItem("lang", lang);
+localStorage.setItem(
+"lang",
+lang
+);
 
 }
 
-/* =========================
-   UPDATE TOGGLE
-========================= */
-
-function updateLanguageButtons(lang){
+function updateToggleUI(lang){
 
 const flag =
 lang === "en"
@@ -101,6 +170,7 @@ document
 .forEach(button => {
 
 button.innerHTML = `
+
 <span class="lang-flag">
 ${flag}
 </span>
@@ -108,15 +178,12 @@ ${flag}
 <span class="lang-text">
 ${text}
 </span>
+
 `;
 
 });
 
 }
-
-/* =========================
-   SWITCH LANGUAGE
-========================= */
 
 function switchLanguage(){
 
@@ -128,10 +195,6 @@ currentLang === "en"
 loadTranslations(currentLang);
 
 }
-
-/* =========================
-   EVENTS
-========================= */
 
 document
 .getElementById("langToggle")
@@ -147,8 +210,5 @@ document
 switchLanguage
 );
 
-/* =========================
-   INITIAL LOAD
-========================= */
-
+/* INITIAL LOAD */
 loadTranslations(currentLang);

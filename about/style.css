@@ -244,7 +244,7 @@ font-weight:700;
 
 cursor:pointer;
 
-transition:var(--transition);
+transition:all .35s ease;
 
 min-width:90px;
 
@@ -267,9 +267,7 @@ box-shadow:
 }
 
 .lang-flag{
-
 font-size:16px;
-
 }
 
 /* =========================
