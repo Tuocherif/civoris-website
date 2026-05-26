@@ -65,9 +65,9 @@ Contact
 </li>
 
 <li>
-<a class="lang-switch" href="#">
+<button class="lang-switch" id="langToggle">
 EN | FR
-</a>
+</button>
 </li>
 
 </ul>
@@ -108,9 +108,9 @@ How it works
 Contact
 </a>
 
-<a href="#" class="mobile-lang">
+<button class="mobile-lang" id="mobileLangToggle">
 EN | FR
-</a>
+</button>
 
 </nav>
 </div>
@@ -505,6 +505,59 @@ entry.target.classList.add("visible");
 },{ threshold:0.15 });
 
 document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+const translations = {
+
+fr: {
+
+heroBadge:
+"Certification PMP • Expertise Internationale en Conseil",
+
+heroTitle:
+"Aider les Organisations à Réaliser leurs Projets, Optimiser leurs Opérations et Atteindre leurs Objectifs Stratégiques",
+
+heroText:
+"Civoris Consultancy accompagne les organisations avec des solutions structurées en gestion de projet et conseil opérationnel afin d'améliorer l'efficacité, l'exécution et la croissance durable."
+
+},
+
+en: {
+
+heroBadge:
+"PMP Certified • International Consulting Expertise",
+
+heroTitle:
+"Helping Organisations Deliver Projects, Improve Operations, and Achieve Strategic Results",
+
+heroText:
+"Civoris Consultancy provides structured project management and business consulting support to organisations seeking operational clarity, efficient execution, and sustainable growth."
+
+}
+
+};
+
+let currentLang = "en";
+
+function switchLanguage(){
+
+currentLang = currentLang === "en" ? "fr" : "en";
+
+document.querySelector(".hero-badge").textContent =
+translations[currentLang].heroBadge;
+
+document.querySelector(".page-hero h1").textContent =
+translations[currentLang].heroTitle;
+
+document.querySelector(".page-hero p").textContent =
+translations[currentLang].heroText;
+
+}
+
+document.getElementById("langToggle")
+.addEventListener("click", switchLanguage);
+
+document.getElementById("mobileLangToggle")
+.addEventListener("click", switchLanguage);
 
 </script>
 

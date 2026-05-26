@@ -123,15 +123,10 @@ p{
    NAVIGATION
 ===================== */
 
-nav{
-  position:fixed;
-  width:100%;
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,0.75);
-  padding:5px 0;
-  z-index:1000;
+header nav{
   transition:all .4s ease;
 }
+
 nav.scrolled{
   box-shadow:0 4px 20px rgba(0,0,0,0.08);
 }
@@ -334,32 +329,39 @@ border-radius:3px;
 
 position:fixed;
 
-top:95px;
+top:88px;
 left:50%;
 
-transform:translateX(-50%) translateY(-20px);
+transform:
+translateX(-50%)
+translateY(-18px)
+scale(.96);
 
 width:92%;
 max-width:1200px;
 
-background:rgba(255,255,255,0.92);
+background:rgba(255,255,255,0.88);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(24px);
 
-border-radius:28px;
+border-radius:26px;
 
-padding:24px;
+padding:22px;
 
 box-shadow:
-0 25px 60px rgba(0,0,0,0.12);
+0 25px 60px rgba(0,0,0,0.14);
 
 opacity:0;
 visibility:hidden;
 
 transition:
-all .45s cubic-bezier(.2,.8,.2,1);
+opacity .35s ease,
+transform .42s cubic-bezier(.2,.8,.2,1),
+visibility .35s ease;
 
 z-index:999;
+
+border:1px solid rgba(255,255,255,0.45);
 
 }
 
@@ -368,7 +370,10 @@ z-index:999;
 opacity:1;
 visibility:visible;
 
-transform:translateX(-50%) translateY(0);
+transform:
+translateX(-50%)
+translateY(0)
+scale(1);
 
 }
 
@@ -376,13 +381,25 @@ transform:translateX(-50%) translateY(0);
 display:flex;
 flex-direction:column;
 gap:10px;
+
+/* IMPORTANT */
+position:relative;
+background:transparent;
+backdrop-filter:none;
+box-shadow:none;
+padding:0;
+width:100%;
 }
 
 .mobile-link,
 .mobile-contact,
 .mobile-lang{
 
-padding:14px 18px;
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:15px 18px;
 
 border-radius:16px;
 
@@ -396,8 +413,35 @@ color:var(--black);
 
 }
 
-.mobile-link:hover{
+.mobile-link:hover,
+.mobile-lang:hover{
+
 background:rgba(122,15,26,.06);
+
+transform:translateX(3px);
+
+}
+
+.lang-switch,
+.mobile-lang{
+
+background:transparent;
+border:none;
+cursor:pointer;
+
+font-size:14px;
+font-weight:700;
+
+opacity:.75;
+
+}
+
+.lang-switch:hover,
+.mobile-lang:hover{
+
+opacity:1;
+color:var(--burgundy);
+
 }
 
 .mobile-contact{
